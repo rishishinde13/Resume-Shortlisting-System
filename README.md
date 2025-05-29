@@ -142,7 +142,7 @@ graph TD
   BL[Business Logic Layer                  Job Processing                 Candidate Ranking                   Threshold Logic                Batch Manager]
   ML[AI and ML Layer                     Document Parsing using PyMuPDF                           NLP using spaCy and Groq    TF-IDF and ML Matching          Groq LLM Integration]
   DL[Data Access Layer          Database Management                File Storage]
-  INF[Infrastructure Layer                SQLite Database                 File System                 Environment Variables                 Configuration]
+  INF[Infrastructure Layer                SQLite Database                 File System                 Environment Variables           Configuration]
 
   UI --> AL
   AL --> BL
