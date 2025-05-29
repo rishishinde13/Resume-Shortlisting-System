@@ -133,43 +133,126 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 ### 🏗️ System Architecture Overview
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           USER INTERFACE LAYER                             │
+│                           USER INTERFACE LAYER                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  Streamlit Web App  │  File Upload  │  Analytics Dashboard  │  Export Tools │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         APPLICATION LOGIC LAYER                            │
+│                         APPLICATION LOGIC LAYER                             │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  Session Mgmt  │  Input Validation  │  Error Handling  │  Progress Tracking │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         BUSINESS LOGIC LAYER                               │
+│                         BUSINESS LOGIC LAYER                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  Job Processing  │  Candidate Ranking  │  Threshold Logic  │  Batch Manager │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           AI/ML PROCESSING LAYER                           │
+│                           AI/ML PROCESSING LAYER                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  Document Parser │  NLP Processor  │  Matching Engine  │  Groq LLM API     │
-│  (PyMuPDF)       │  (spaCy + Groq) │  (TF-IDF + ML)   │  (External)        │
+│  Document Parser │  NLP Processor  │  Matching Engine  │  Groq LLM API      │
+│  (PyMuPDF)       │  (spaCy + Groq) │  (TF-IDF + ML)   │  (External)         │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                            DATA ACCESS LAYER                               │
+│                            DATA ACCESS LAYER                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  Database Manager │  File Storage  │  Security Manager │  Audit Logger     │
+│  Database Manager │  File Storage  │  Security Manager │  Audit Logger      │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          INFRASTRUCTURE LAYER                              │
+│                          INFRASTRUCTURE LAYER                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  SQLite Database  │  File System   │  Environment Vars │  Configuration    │
+│  SQLite Database  │  File System   │  Environment Vars │  Configuration     │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ---
 
-#DEMO
+### 🗃️ Database Schema Design (ER Diagram)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          DATABASE SCHEMA DESIGN                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 
+    ┌──────────────────────────────────┐
+    │         JOB_DESCRIPTIONS         │
+    ├──────────────────────────────────┤
+    │ PK  id (INTEGER)                 │
+    │     title (VARCHAR(255))         │
+    │     description (TEXT)           │
+    │     requirements (TEXT)          │
+    │     similarity_threshold (FLOAT) │
+    │     created_at (TIMESTAMP)       │
+    │     updated_at (TIMESTAMP)       │
+    └──────────────────────────────────┘
+                     │
+                     │ 1:N
+                     ▼
+    ┌──────────────────────────────────┐
+    │           CANDIDATES             │
+    ├──────────────────────────────────┤
+    │ PK  id (INTEGER)                 │
+    │ FK  job_description_id (INTEGER) │
+    │     filename (VARCHAR(255))      │
+    │     full_name (VARCHAR(255))     │
+    │     email (VARCHAR(255))         │
+    │     phone (VARCHAR(50))          │
+    │     location (VARCHAR(255))      │
+    │     experience_years (INTEGER)   │
+    │     resume_text (TEXT)           │
+    │     similarity_score (DECIMAL)   │
+    │     match_status (ENUM)          │
+    │     file_size_mb (DECIMAL)       │
+    │     file_hash (VARCHAR(64))      │
+    │     processed_at (TIMESTAMP)     │
+    │     created_at (TIMESTAMP)       │
+    └──────────────────────────────────┘
+           │                    │
+           │ 1:N                │ 1:N
+           ▼                    ▼
+    ┌─────────────────┐    ┌─────────────────┐
+    │   EDUCATION     │    │     SKILLS      │
+    ├─────────────────┤    ├─────────────────┤
+    │ PK id (INTEGER) │    │ PK id (INTEGER) │
+    │ FK candidate_id │    │ FK candidate_id │
+    │    degree       │    │    skill        │
+    │    institution  │    │    category     │
+    │    start_date   │    │    proficiency  │
+    │    end_date     │    │    years_exp    │
+    │    gpa          │    │    verified     │
+    │    major        │    │    source       │
+    └─────────────────┘    └─────────────────┘
+
+    ┌──────────────────────────────────┐
+    │       MATCHING_SESSIONS          │
+    ├──────────────────────────────────┤
+    │ PK  id (INTEGER)                 │
+    │ FK  job_description_id (INTEGER) │
+    │     total_candidates (INTEGER)   │
+    │     shortlisted_count (INTEGER)  │
+    │     rejected_count (INTEGER)     │
+    │     avg_similarity_score (FLOAT) │
+    │     processing_time_seconds (INT)│
+    │     session_start (TIMESTAMP)    │
+    │     session_end (TIMESTAMP)      │
+    └──────────────────────────────────┘
+
+    ┌──────────────────────────────────┐
+    │         FILE_STORAGE             │
+    ├──────────────────────────────────┤
+    │ PK  id (INTEGER)                 │
+    │ FK  candidate_id (INTEGER)       │
+    │     original_filename (VARCHAR)  │
+    │     stored_filename (VARCHAR)    │
+    │     file_path (VARCHAR)          │
+    │     file_type (VARCHAR)          │
+    │     file_size_bytes (BIGINT)     │
+    │     mime_type (VARCHAR)          │
+    │     checksum (VARCHAR)           │
+    │     upload_timestamp (TIMESTAMP) │
+    │     is_archived (BOOLEAN)        │
+    └──────────────────────────────────┘
+
+---
