@@ -16,9 +16,6 @@ An intelligent system that evaluates resumes using **Natural Language Processing
 - **AI-Powered Analysis**: Semantic understanding using `spaCy NLP` and `Groq LLM`
 - **Smart Matching Algorithm**: TF-IDF vectorization with cosine similarity scoring
 - **Real-time Analytics**: Interactive Streamlit dashboards with candidate insights
-- **Batch Processing**: Handles 1000+ resumes seamlessly
-- **Secure Storage**: AES-256 encrypted enterprise-grade storage
-
 ---
 
 ## ⚙️ Performance Metrics
