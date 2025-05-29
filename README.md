@@ -133,16 +133,16 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 ### 🏗️ System Architecture Overview
 
 <details>
-<summary>Click to expand Mermaid version</summary>
+<summary>Click to expand Architecture Diagram (Mermaid)</summary>
 
 ```mermaid
 graph TD
-  UI[User Interface Layer<br>Streamlit Web App<br>File Upload • Analytics Dashboard • Export Tools]
-  AL[Application Logic Layer<br>Session Mgmt • Input Validation • Error Handling • Progress Tracking]
-  BL[Business Logic Layer<br>Job Processing • Candidate Ranking • Threshold Logic • Batch Manager]
-  ML[AI/ML Processing Layer<br>Document Parser (PyMuPDF) • NLP (spaCy + Groq)<br>Matching Engine (TF-IDF + ML) • Groq LLM API]
-  DL[Data Access Layer<br>Database Manager • File Storage • Security Manager • Audit Logger]
-  INF[Infrastructure Layer<br>SQLite DB • File System • Env Vars • Configuration]
+  UI[User Interface Layer\nStreamlit Web App\nFile Upload\nAnalytics Dashboard\nExport Tools]
+  AL[Application Logic Layer\nSession Management\nInput Validation\nError Handling\nProgress Tracking]
+  BL[Business Logic Layer\nJob Processing\nCandidate Ranking\nThreshold Logic\nBatch Manager]
+  ML[AI/ML Processing Layer\nDocument Parser (PyMuPDF)\nNLP (spaCy + Groq)\nMatching Engine (TF-IDF + ML)\nGroq LLM API]
+  DL[Data Access Layer\nDatabase Manager\nFile Storage\nSecurity Manager\nAudit Logger]
+  INF[Infrastructure Layer\nSQLite DB\nFile System\nEnvironment Variables\nConfiguration]
 
   UI --> AL
   AL --> BL
@@ -152,6 +152,7 @@ graph TD
 ```
 
 </details>
+
 
 ---
 
