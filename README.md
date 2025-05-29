@@ -137,12 +137,12 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 
 ```mermaid
 graph TD
-  UI[User Interface Layer<br>Streamlit Web App<br>File Upload | Analytics Dashboard | Export Tools]
-  AL[Application Logic Layer<br>Session Mgmt | Input Validation | Error Handling | Progress Tracking]
-  BL[Business Logic Layer<br>Job Processing | Candidate Ranking | Threshold Logic | Batch Manager]
-  ML[AI/ML Processing Layer<br>Document Parser (PyMuPDF) | NLP (spaCy + Groq)<br>Matching Engine (TF-IDF + ML) | Groq LLM API]
-  DL[Data Access Layer<br>Database Manager | File Storage | Security Manager | Audit Logger]
-  INF[Infrastructure Layer<br>SQLite DB | File System | Env Vars | Configuration]
+  UI[User Interface Layer<br>Streamlit Web App<br>File Upload • Analytics Dashboard • Export Tools]
+  AL[Application Logic Layer<br>Session Mgmt • Input Validation • Error Handling • Progress Tracking]
+  BL[Business Logic Layer<br>Job Processing • Candidate Ranking • Threshold Logic • Batch Manager]
+  ML[AI/ML Processing Layer<br>Document Parser (PyMuPDF) • NLP (spaCy + Groq)<br>Matching Engine (TF-IDF + ML) • Groq LLM API]
+  DL[Data Access Layer<br>Database Manager • File Storage • Security Manager • Audit Logger]
+  INF[Infrastructure Layer<br>SQLite DB • File System • Env Vars • Configuration]
 
   UI --> AL
   AL --> BL
