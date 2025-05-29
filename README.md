@@ -137,7 +137,7 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 
 ```mermaid
 graph TD
-  UI[User Interface Layer\nStreamlit Web App\nFile Upload\nAnalytics Dashboard\nExport Tools]
+  UI[User Interface Layer\n     Streamlit Web App\nFile Upload\nAnalytics Dashboard\nExport Tools]
   AL[Application Logic Layer\nSession Management\nInput Validation\nError Handling\nProgress Tracking]
   BL[Business Logic Layer\nJob Processing\nCandidate Ranking\nThreshold Logic\nBatch Manager]
   ML[AI and ML Layer\nDocument Parsing using PyMuPDF\nNLP using spaCy and Groq\nTF-IDF and ML Matching\nGroq LLM Integration]
