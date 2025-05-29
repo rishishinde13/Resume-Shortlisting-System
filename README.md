@@ -133,47 +133,53 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 ### 🏗️ System Architecture Overview
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           USER INTERFACE LAYER                              │
+│                           USER INTERFACE LAYER                             │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  Streamlit Web App  │  File Upload  │  Analytics Dashboard  │  Export Tools │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
+                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         APPLICATION LOGIC LAYER                             │
+│                         APPLICATION LOGIC LAYER                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  Session Mgmt  │  Input Validation  │  Error Handling  │  Progress Tracking │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
+                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         BUSINESS LOGIC LAYER                                │
+│                         BUSINESS LOGIC LAYER                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  Job Processing  │  Candidate Ranking  │  Threshold Logic  │  Batch Manager │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
+                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           AI/ML PROCESSING LAYER                            │
+│                           AI/ML PROCESSING LAYER                           │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  Document Parser │  NLP Processor  │  Matching Engine  │  Groq LLM API      │
-│  (PyMuPDF)       │  (spaCy + Groq) │  (TF-IDF + ML)   │  (External)         │
+│  Document Parser │  NLP Processor  │  Matching Engine  │  Groq LLM API     │
+│  (PyMuPDF)       │  (spaCy + Groq) │  (TF-IDF + ML)   │  (External)        │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
+                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                            DATA ACCESS LAYER                                │
+│                            DATA ACCESS LAYER                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  Database Manager │  File Storage  │  Security Manager │  Audit Logger      │
+│  Database Manager │  File Storage  │  Security Manager │  Audit Logger     │
 └─────────────────────────────────────────────────────────────────────────────┘
                                        │
+                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          INFRASTRUCTURE LAYER                               │
+│                          INFRASTRUCTURE LAYER                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  SQLite Database  │  File System   │  Environment Vars │  Configuration     │
+│  SQLite Database  │  File System   │  Environment Vars │  Configuration    │
 └─────────────────────────────────────────────────────────────────────────────┘
+
 
 ---
 
 ### 🗃️ Database Schema Design (ER Diagram)
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          DATABASE SCHEMA DESIGN                             │
+│                          DATABASE SCHEMA DESIGN                            │
 └─────────────────────────────────────────────────────────────────────────────┘
 
     ┌──────────────────────────────────┐
@@ -253,6 +259,20 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
     │     checksum (VARCHAR)           │
     │     upload_timestamp (TIMESTAMP) │
     │     is_archived (BOOLEAN)        │
+    └──────────────────────────────────┘
+
+    ┌──────────────────────────────────┐
+    │           AUDIT_LOGS             │
+    ├──────────────────────────────────┤
+    │ PK  id (INTEGER)                 │
+    │     entity_type (VARCHAR)        │
+    │     entity_id (INTEGER)          │
+    │     action (VARCHAR)             │
+    │     old_values (JSON)            │
+    │     new_values (JSON)            │
+    │     user_session (VARCHAR)       │
+    │     ip_address (VARCHAR)         │
+    │     timestamp (TIMESTAMP)        │
     └──────────────────────────────────┘
 
 ---
