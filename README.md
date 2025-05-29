@@ -16,16 +16,6 @@ An intelligent system that evaluates resumes using **Natural Language Processing
 - **AI-Powered Analysis**: Semantic understanding using `spaCy NLP` and `Groq LLM`
 - **Smart Matching Algorithm**: TF-IDF vectorization with cosine similarity scoring
 - **Real-time Analytics**: Interactive Streamlit dashboards with candidate insights
----
-
-## ⚙️ Performance Metrics
-
-| Metric              | Value                   |
-|---------------------|--------------------------|
-| Processing Speed    | 2.3 seconds/resume       |
-| Throughput          | 1,500+ resumes/hour      |
-| Matching Accuracy   | 92.4% precision          |
-| Memory Efficiency   | 50MB per 100 resumes     |
 
 ---
 
