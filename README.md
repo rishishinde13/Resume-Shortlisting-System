@@ -132,7 +132,8 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 
 ### 🏗️ System Architecture Overview
 
-![Editor _ Mermaid Chart-2025-05-29-155516](https://github.com/user-attachments/assets/9ae7cb15-3d50-477c-af16-8f760cab276c)
+![image](https://github.com/user-attachments/assets/fb20d116-2782-458a-ab2b-2eb8e04fcd6d)
+
 
 ---
 
