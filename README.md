@@ -237,18 +237,4 @@ graph TD
     │     is_archived (BOOLEAN)        │
     └──────────────────────────────────┘
 
-    ┌──────────────────────────────────┐
-    │           AUDIT_LOGS             │
-    ├──────────────────────────────────┤
-    │ PK  id (INTEGER)                 │
-    │     entity_type (VARCHAR)        │
-    │     entity_id (INTEGER)          │
-    │     action (VARCHAR)             │
-    │     old_values (JSON)            │
-    │     new_values (JSON)            │
-    │     user_session (VARCHAR)       │
-    │     ip_address (VARCHAR)         │
-    │     timestamp (TIMESTAMP)        │
-    └──────────────────────────────────┘
-
 ---
