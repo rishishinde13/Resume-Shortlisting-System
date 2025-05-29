@@ -1,6 +1,6 @@
 # 🚀 Resume Shortlisting System
 
-An **enterprise-grade recruitment automation platform** powered by advanced **AI**, **Machine Learning**, and **Large Language Models** (LLMs). It automates resume screening with over **92% accuracy** and processes resumes **85% faster** than manual review.
+An **enterprise-grade recruitment automation platform** powered by advanced **AI**, **Machine Learning**, and **Large Language Models** (LLMs). It automates resume screening with **high accuracy** and processes resumes **faster** than manual review.
 
 ---
 
@@ -12,7 +12,7 @@ An intelligent system that evaluates resumes using **Natural Language Processing
 
 ## 🔑 Key Features
 
-- **Multi-format Document Support**: PDF, DOCX, DOC, TXT (99.7% text extraction accuracy)
+- **Multi-format Document Support**: PDF, DOCX, DOC, TXT (high text extraction accuracy)
 - **AI-Powered Analysis**: Semantic understanding using `spaCy NLP` and `Groq LLM`
 - **Smart Matching Algorithm**: TF-IDF vectorization with cosine similarity scoring
 - **Real-time Analytics**: Interactive Streamlit dashboards with candidate insights
