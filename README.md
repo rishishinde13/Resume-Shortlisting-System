@@ -140,9 +140,9 @@ graph TD
   UI[User Interface Layer\nStreamlit Web App\nFile Upload\nAnalytics Dashboard\nExport Tools]
   AL[Application Logic Layer\nSession Management\nInput Validation\nError Handling\nProgress Tracking]
   BL[Business Logic Layer\nJob Processing\nCandidate Ranking\nThreshold Logic\nBatch Manager]
-  ML[AI/ML Processing Layer\nDocument Parser (PyMuPDF)\nNLP (spaCy + Groq)\nMatching Engine (TF-IDF + ML)\nGroq LLM API]
-  DL[Data Access Layer\nDatabase Manager\nFile Storage\nSecurity Manager\nAudit Logger]
-  INF[Infrastructure Layer\nSQLite DB\nFile System\nEnvironment Variables\nConfiguration]
+  ML[AI and ML Layer\nDocument Parsing using PyMuPDF\nNLP using spaCy and Groq\nTF-IDF and ML Matching\nGroq LLM Integration]
+  DL[Data Access Layer\nDatabase Management\nFile Storage\nSecurity Controls\nAudit Logging]
+  INF[Infrastructure Layer\nSQLite Database\nFile System\nEnvironment Variables\nConfiguration]
 
   UI --> AL
   AL --> BL
@@ -152,6 +152,7 @@ graph TD
 ```
 
 </details>
+
 
 ---
 
