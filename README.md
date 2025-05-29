@@ -132,8 +132,11 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 
 ### 🏗️ System Architecture Overview
 
-<details> <summary>
-  graph TD
+<details>
+<summary>Click to expand Mermaid version</summary>
+
+```mermaid
+graph TD
   UI[User Interface Layer<br>Streamlit Web App<br>File Upload | Analytics Dashboard | Export Tools]
   AL[Application Logic Layer<br>Session Mgmt | Input Validation | Error Handling | Progress Tracking]
   BL[Business Logic Layer<br>Job Processing | Candidate Ranking | Threshold Logic | Batch Manager]
@@ -146,9 +149,10 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
   BL --> ML
   ML --> DL
   DL --> INF
+```
 
-  </summary>
 </details>
+
 ---
 
 ### 🗃️ Database Schema Design (ER Diagram)
