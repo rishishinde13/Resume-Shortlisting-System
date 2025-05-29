@@ -132,27 +132,7 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 
 ### 🏗️ System Architecture Overview
 
-<details>
-<summary>Click to expand Architecture Diagram (Mermaid)</summary>
-
-```mermaid
-graph TD
-  UI[User Interface Layer                Streamlit                                 Web App                  File Upload                 Analytics Dashboard                Export Tools]
-  AL[Application Logic Layer                Session Management              Input Validation                 Error Handling                Progress Tracking]
-  BL[Business Logic Layer                  Job Processing                 Candidate Ranking                   Threshold Logic                Batch Manager]
-  ML[AI and ML Layer                     Document Parsing using PyMuPDF                           NLP using spaCy and Groq    TF-IDF and ML Matching          Groq LLM Integration]
-  DL[Data Access Layer          Database Management                File Storage]
-  INF[Infrastructure Layer                SQLite Database                 File System                 Environment Variables           Configuration]
-
-  UI --> AL
-  AL --> BL
-  BL --> ML
-  ML --> DL
-  DL --> INF
-```
-
-</details>
-
+![Editor _ Mermaid Chart-2025-05-29-155516](https://github.com/user-attachments/assets/9ae7cb15-3d50-477c-af16-8f760cab276c)
 
 ---
 
